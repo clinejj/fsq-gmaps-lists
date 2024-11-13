@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Foursquare to Google Maps Lists Converter",
+  "version": "1.0",
+  "description": "A Chrome extension that converts your Foursquare lists to Google Maps lists.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/maps/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "72": "images/icon-72.png"
+    }
+  },
+  "icons": {
+    "72": "images/icon-72.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "popup.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
